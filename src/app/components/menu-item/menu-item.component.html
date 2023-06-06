@@ -1,0 +1,21 @@
+<div class="menu-item">
+  <div class="title">
+    <h5>{{pizza.name}}</h5>
+  </div>
+  <div class="image">
+    <img src="{{pizza.image}}" alt="Pizza">
+  </div>
+  <div class="options">
+    <div class="sizes">
+      <div class="sizes-switch">
+        <div class="size-small" (click)="setSelectedSize('small')" [ngClass]="{'selected': selectedSize === 'small'}">32cm</div>
+        <div class="size-big" (click)="setSelectedSize('big')" [ngClass]="{'selected': selectedSize === 'big'}">40cm</div>
+      </div>
+    </div>
+    <div class="prize">
+      <div class="add">
+        <p>{{selectedSize === 'small' ? pizza.prize.small : pizza.prize.big}} CHF</p>
+      </div>
+    </div>
+  </div>
+</div>

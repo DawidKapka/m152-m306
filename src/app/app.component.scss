@@ -1,0 +1,11 @@
+@import "src/styles/colors.scss";
+
+.content-wrapper {
+  width: 100vw;
+  min-height: calc(100vh - 256px);
+  background: $color-black;
+
+  .content {
+    padding: 64px 256px;
+  }
+}

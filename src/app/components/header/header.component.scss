@@ -1,0 +1,51 @@
+@import "src/styles/colors.scss";
+
+.header {
+  width: 100vw;
+  height: 128px;
+  background: $color-black-dark;
+  border-bottom: 1px solid $color-black-dark;
+  display: flex;
+  align-items: center;
+
+  .logo {
+    height: 80%;
+    width: 40%;
+
+    img {
+      height: 100%;
+      margin-left: 32px;
+    }
+  }
+
+  .menu {
+    display: flex;
+    width: 60%;
+    height: 80%;
+    justify-content: right;
+    padding-right: 64px;
+    align-items: center;
+
+    .menu-item {
+      margin: 64px;
+      color: $color-blue;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-blue-active;
+      }
+
+      .basket {
+        height: 32px;
+        margin-top: 4px;
+        // color-pink
+        filter: invert(66%) sepia(5%) saturate(3717%) hue-rotate(302deg) brightness(105%) contrast(88%);
+
+        &:hover {
+          // color-pink-active
+          filter: invert(57%) sepia(82%) saturate(1202%) hue-rotate(309deg) brightness(109%) contrast(86%);
+        }
+      }
+    }
+  }
+}

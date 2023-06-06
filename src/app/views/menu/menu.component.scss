@@ -1,0 +1,66 @@
+@import "src/styles/colors.scss";
+.menu {
+  min-height: 512px;
+  box-shadow: 2px 2px 2px $color-black-dark;
+  width: 100%;
+  background: $color-black-dark;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .title {
+    width: 100%;
+    text-align: center;
+    padding: 32px 0;
+
+    h1 {
+      font-weight: bold;
+      color: $color-blue;
+    }
+  }
+
+  .bestsellers {
+    width: calc(100% - 128px);
+    margin: 0 64px;
+    height: auto;
+    background-color: $color-black;
+
+    h4 {
+      width: 100%;
+      text-align: center;
+      padding-top: 16px;
+    }
+
+    .content {
+      display: flex;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      padding-bottom: 32px;
+    }
+  }
+
+  .menu-content-wrapper {
+    padding: 0 16px;
+
+    h4 {
+      font-family: 'Inter', sans-serif;
+    }
+  }
+
+  .regular-title {
+    width: 100%;
+    padding: 32px 0 16px 0;
+
+    h4 {
+      text-align: center;
+    }
+  }
+
+  .menu-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+
+  }
+}

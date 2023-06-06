@@ -1,0 +1,58 @@
+@import "src/styles/colors.scss";
+
+$dough: #a76434;
+$sauce: #c10c0c;
+
+.personalization {
+  min-height: 512px;
+  width: 100%;
+  background: $color-black-dark;
+
+  .title {
+    width: 100%;
+    text-align: center;
+    padding: 32px 0;
+
+    h2 {
+      color: $color-blue;
+    }
+  }
+
+  .creation {
+    width: 100%;
+    height: 512px;
+    padding: 32px;
+    display: flex;
+
+    .visual {
+      height: 100%;
+      width: calc(60% - 32px);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .pizza {
+        width: 360px;
+        height: 360px;
+        background-color: $dough;
+        border-radius: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .sauce {
+          height: 320px;
+          width: 320px;
+          background-color: $sauce;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .ingredients {
+      height: 100%;
+      width: calc(40% - 32px);
+      background-color: red;
+    }
+  }
+}

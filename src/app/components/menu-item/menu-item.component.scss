@@ -1,0 +1,96 @@
+@import 'src/styles/colors.scss';
+
+.menu-item {
+  width: 360px;
+  height: 256px;
+  background: $color-black;
+  margin: 16px;
+  border-radius: 4px;
+  border: 1px solid $color-black-dark;
+  box-shadow: 1px 1px 1px $color-black-dark;
+
+  .title {
+    width: 100%;
+    text-align: center;
+    padding: 16px 0;
+  }
+
+  .image {
+    width: 100%;
+    height: calc(100% - 96px);
+    background: black;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .options {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+
+    .sizes {
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .sizes-switch {
+        height: 80%;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .selected {
+          background-color: $color-pink;
+        }
+
+        .size-small, .size-big {
+          border-top: 2px solid $color-black-dark;
+          border-bottom: 2px solid $color-black-dark;
+          width: 50%;
+          text-align: center;
+          color: $color-white;
+        }
+
+        .size-small {
+          border-radius: 6px 0 0 6px;
+          border-left: 2px solid $color-black-dark;
+        }
+
+        .size-big {
+          border-radius: 0 6px 6px 0;
+          border-right: 2px solid $color-black-dark;
+        }
+      }
+    }
+
+    .prize {
+      width: 50%;
+      height: 48px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .add {
+        display: flex;
+        height: 50%;
+        width: 50%;
+        background-color: $color-pink;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 6px;
+        box-shadow: 2px 2px 2px $color-black;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color-pink-active;
+        }
+      }
+    }
+  }
+}
