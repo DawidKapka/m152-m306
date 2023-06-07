@@ -9,6 +9,12 @@ import { PersonalizationComponent } from './views/personalization/personalizatio
 import { ContactComponent } from './views/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import {MenuService} from "./services/menu.service";
+import {OrderService} from "./services/order.service";
+import { OrderComponent } from './views/order/order.component';
+import { OrderStep1Component } from './views/order/order-step1/order-step1.component';
+import { OrderStep2Component } from './views/order/order-step2/order-step2.component';
+import { OrderStep3Component } from './views/order/order-step3/order-step3.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +24,17 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
     PersonalizationComponent,
     ContactComponent,
     FooterComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    OrderComponent,
+    OrderStep1Component,
+    OrderStep2Component,
+    OrderStep3Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MenuService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

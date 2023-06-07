@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {MenuItem} from "../../types/menu.types";
+import {OrderService} from "../../services/order.service";
 
 @Component({
   selector: 'app-menu-item',
@@ -7,24 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuItemComponent implements OnInit {
 
-  public pizza = {
-    name: 'Test Pizza',
-    image: '',
-    prize: {
-      small: '20.00',
-      big: '32.00'
-    }
-  }
+  @Input() menuItem: MenuItem | undefined;
 
-  public selectedSize: 'big' | 'small' = 'small';
+  public selectedSize: 'large' | 'small' = 'small';
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
   }
 
-  public setSelectedSize(size: 'big' | 'small') {
+  public setSelectedSize(size: 'large' | 'small') {
     this.selectedSize = size;
   }
 
+  public formatPrice(price: number) {
+    return price.toFixed(2);
+  }
+
+  public addToOrder() {
+    this.orderService.addToOrder(
+      { name: this.createName(), price: this.getItemPrice()}
+    )
+    console.log(this.orderService.getOrderItems());
+  }
+
+  private createName() {
+    return `${this.menuItem!.name} - ${this.selectedSize === 'large' ? '40cm' : '32cm'}`
+  }
+
+  private getItemPrice() {
+    return this.selectedSize === 'large'
+      ? this.menuItem!.price.large
+      : this.menuItem!.price.small
+  }
 }

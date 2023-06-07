@@ -26,6 +26,28 @@
     padding-right: 64px;
     align-items: center;
 
+    .basket-wrapper {
+      display: flex;
+
+      .amount {
+        width: 24px;
+        height: 24px;
+        background-color: $color-pink;
+        border-radius: 50%;
+        margin: 6px 0 0 4px;
+
+        &:hover {
+          color: $color-pink-active;
+        }
+
+        p {
+          width: 24px;
+          line-height: 24px;
+          text-align: center;
+        }
+      }
+    }
+
     .menu-item {
       margin: 64px;
       color: $color-blue;

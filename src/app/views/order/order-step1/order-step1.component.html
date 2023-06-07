@@ -1,0 +1,36 @@
+<div class="title" *ngIf="!compact">
+  <h2>Your Order</h2>
+</div>
+<div class="order-total" [ngClass]="{'compact': compact}">
+  <div class="order-item" *ngFor="let item of summarize(orderService.getOrderItems()); let i = index">
+    <div class="info-wrapper">
+      <div class="name">
+        <h5>
+          {{item.amount}}x {{item.name}}
+        </h5>
+      </div>
+      <div class="price">
+        <h5>
+          {{item.price.toFixed(2)}} CHF
+        </h5>
+      </div>
+    </div>
+    <div class="divider-small" *ngIf="i !== summarize(orderService.getOrderItems()).length -1"></div>
+  </div>
+  <div class="total">
+    <div class="divider-big"></div>
+    <div class="info-wrapper">
+      <div class="name total-name">
+        <h5>Total</h5>
+      </div>
+      <div class="price total-price">
+        <h5>
+          {{getTotalPrice()}} CHF
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-wrapper" *ngIf="!compact">
+  <button class="continue" (click)="nextStep()">Continue</button>
+</div>

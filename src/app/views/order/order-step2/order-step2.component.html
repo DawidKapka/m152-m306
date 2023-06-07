@@ -1,0 +1,27 @@
+<div class="title">
+  <h2>Delivery Infos</h2>
+</div>
+<div class="address-form">
+  <div class="first-last-name">
+    <input type="text" id="firstname" #firstname class="input small" placeholder="First Name">
+    <input type="text" id="lastname" #lastname class="input small" placeholder="Last Name">
+  </div>
+  <div class="street">
+    <input type="text" id="street" #street class="input" placeholder="Street + No.">
+  </div>
+  <div class="zip-city">
+    <input type="text" id="zip" #zip class="input small" placeholder="ZIP">
+    <input type="text" id="city" #city class="input small" placeholder="City">
+  </div>
+  <div class="tel">
+    <input type="text" id="number" #number class="input" placeholder="+41 79 123 45 67">
+  </div>
+  <div class="errors" *ngIf="errors.length > 0">
+    <div class="error-message" *ngFor="let error of errors">
+      <p>{{error.error}}</p>
+    </div>
+  </div>
+</div>
+<div class="button-wrapper">
+  <button class="continue" (click)="placeOrder()">Continue</button>
+</div>

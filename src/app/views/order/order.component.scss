@@ -1,0 +1,42 @@
+@import "src/styles/colors.scss";
+
+.order {
+  min-height: 512px;
+  width: 100%;
+  background: $color-black-dark;
+
+  .title {
+    width: 100%;
+    text-align: center;
+    padding: 32px 0;
+
+    h2, h4 {
+      color: $color-blue;
+    }
+
+    h4 {
+      margin-top: 32px;
+    }
+
+    .go-to-menu {
+      color: $color-pink;
+      margin-top: 16px;
+      cursor: pointer;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-pink-active;
+      }
+    }
+  }
+  .order-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.order-step {
+  width: 100%;
+}

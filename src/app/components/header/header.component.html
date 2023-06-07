@@ -6,8 +6,11 @@
     <h5 class="menu-item" routerLink="menu">Menu</h5>
     <h5 class="menu-item" routerLink="personalize">Personalize</h5>
     <h5 class="menu-item" routerLink="contact">Contact</h5>
-    <div class="menu-item">
+    <div class="menu-item basket-wrapper" (click)="navigateToOrder()">
       <img class="basket" src="assets/basket-icon.png" alt="Basket">
+      <div class="amount" *ngIf="hasItemsInOrder()">
+        <p>{{getOrderItemAmount()}}</p>
+      </div>
     </div>
   </div>
 </div>
