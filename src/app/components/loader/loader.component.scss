@@ -1,0 +1,15 @@
+@import "src/styles/colors.scss";
+
+.loader-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 256px;
+
+  .loader {
+    width: 64px;
+    height: 64px;
+    filter: invert(66%) sepia(5%) saturate(3717%) hue-rotate(302deg) brightness(105%) contrast(88%);
+  }
+}
