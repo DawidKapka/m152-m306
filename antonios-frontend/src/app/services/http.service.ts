@@ -1,0 +1,15 @@
+import {Injectable} from "@angular/core";
+
+@Injectable()
+export class HttpService {
+
+  public post(url: string, body: any): Promise<any> {
+    return fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body
+    }).then(response => response.json())
+  };
+}
