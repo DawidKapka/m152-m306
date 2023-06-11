@@ -1,0 +1,105 @@
+@import "src/styles/colors.scss";
+
+.overview {
+  min-height: 512px;
+  width: 100%;
+  background: $color-black-dark;
+
+  .title {
+    width: 100%;
+    text-align: center;
+    padding: 32px 0 16px 0;
+  }
+
+  .order-id {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .order-overview {
+    background-color: $color-black;
+    width: calc(100% - 256px);
+    margin: 32px 32px 32px 64px;
+    padding: 64px;
+
+
+    .order-item, .total {
+      color: $color-white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .info-wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px;
+      }
+
+      .total-name h5, .total-price h5 {
+        font-weight: bold;
+      }
+    }
+
+    .divider-small {
+      width: 100%;
+      height: 1px;
+      background-color: $color-white;
+      opacity: .5;
+      margin: 16px 0;
+    }
+
+    .divider-big {
+      width: 100%;
+      height: 2px;
+      background-color: $color-white;
+      margin: 16px 0;
+    }
+  }
+
+  .delivery-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 32px;
+
+    h4 {
+      width: 100%;
+      text-align: center;
+    }
+
+    .infos {
+      display: flex;
+      width: 80%;
+      padding: 32px 10%;
+
+      .keys {
+        width: 25%;
+      }
+
+      .values {
+        width: 75%;
+      }
+
+
+      .key, .value {
+        margin: 16px;
+        font-size: 16px;
+      }
+
+      .key {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .delivery-status {
+    width: 100%;
+    text-align: center;
+    padding: 64px 0;
+
+    .status {
+      color: $color-pink;
+    }
+  }
+}

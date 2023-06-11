@@ -1,22 +1,40 @@
 import {Injectable} from "@angular/core";
 import {MenuItem} from "../types/menu.types";
+import {HttpService} from "./http.service";
 
 @Injectable()
 export class MenuService {
+  private API_URL = 'http://localhost:3000';
 
-  public fetchMenuItems(): MenuItem[] {
-    return [
-      {name: 'Pizza Margherita', image: 'test', price: { small: 20.00, large: 26.00}},
-      {name: 'Pizza Prosciutto', image: 'test', price: { small: 22.00, large: 30.00}},
-      {name: 'Pizza Salami', image: 'test', price: { small: 24.00, large: 32.00}}
-    ]
+  constructor(private httpService: HttpService) {
   }
 
-  public getMostPopular(): MenuItem[] {
-    return [
-      {name: 'Pizza Margherita', image: 'test', price: { small: 20.00, large: 26.00}},
-      {name: 'Pizza Prosciutto', image: 'test', price: { small: 22.00, large: 30.00}},
-      {name: 'Pizza Salami', image: 'test', price: { small: 24.00, large: 32.00}}
-    ]
+  public async fetchMenuItems(): Promise<MenuItem[]> {
+    return new Promise<MenuItem[]>((resolve, reject) => {
+      this.httpService.get(`${this.API_URL}/menu`)
+        .then(response => resolve(this.mapToMenuItems(response)))
+        .catch(error => reject(error))
+    })
+  }
+
+  private mapToMenuItems(data: any): MenuItem[] {
+    const menuItems: MenuItem[] = data
+      .map((item: any) => ({
+        name: item.itemName,
+        price: {
+          small: item.smallPrice,
+          large: item.largePrice
+        },
+        ingredients: item.ingredients.map((ingredient: any) => ingredient.ingredientName).join(', '),
+      }))
+    return menuItems;
+  }
+
+  public getMostPopular(): Promise<MenuItem[]> {
+    return new Promise<MenuItem[]>((resolve, reject) => {
+      this.httpService.get(`${this.API_URL}/menu/bestsellers`)
+        .then(response => resolve(this.mapToMenuItems(response)))
+        .catch(error => reject(error))
+    })
   }
 }

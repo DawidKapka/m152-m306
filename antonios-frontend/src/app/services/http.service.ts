@@ -12,4 +12,13 @@ export class HttpService {
       body
     }).then(response => response.json())
   };
+
+  public get(url: string): Promise<any> {
+    return fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => response.json())
+  }
 }

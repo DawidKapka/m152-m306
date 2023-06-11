@@ -59,4 +59,16 @@ export class OrderService {
       orderInfos: this.orderInfos!
     }
   }
+
+  public fetchOrder(orderId: number): Promise<Order> {
+    return new Promise<Order>((resolve, reject) => {
+      this.httpService.get(`${this.API_URL}/order/${orderId}`)
+        .then(response => {
+          resolve(response)
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
+  }
 }

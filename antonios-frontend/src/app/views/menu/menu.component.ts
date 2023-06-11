@@ -13,8 +13,12 @@ export class MenuComponent implements OnInit {
   public mostPopular: MenuItem[] = []
 
   constructor(private menuService: MenuService) {
-    this.menuItems = menuService.fetchMenuItems();
-    this.mostPopular = menuService.getMostPopular();
+    menuService.fetchMenuItems().then(menuItems => {
+      this.menuItems = menuItems;
+    });
+    menuService.getMostPopular().then(mostPopular => {
+      this.mostPopular = mostPopular;
+    });
   }
 
   ngOnInit(): void {

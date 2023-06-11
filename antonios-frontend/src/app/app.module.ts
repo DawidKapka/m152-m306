@@ -17,6 +17,7 @@ import { OrderStep2Component } from './views/order/order-step2/order-step2.compo
 import { OrderStep3Component } from './views/order/order-step3/order-step3.component';
 import {HttpService} from "./services/http.service";
 import {PersonalizationService} from "./services/personalization.service";
+import { OverviewComponent } from './views/overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {PersonalizationService} from "./services/personalization.service";
     OrderComponent,
     OrderStep1Component,
     OrderStep2Component,
-    OrderStep3Component
+    OrderStep3Component,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
