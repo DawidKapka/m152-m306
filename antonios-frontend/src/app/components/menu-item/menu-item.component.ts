@@ -30,7 +30,6 @@ export class MenuItemComponent implements OnInit {
     this.orderService.addToOrder(
       { name: this.createName(), price: this.getItemPrice()}
     )
-    console.log(this.orderService.getOrderItems());
   }
 
   private createName() {

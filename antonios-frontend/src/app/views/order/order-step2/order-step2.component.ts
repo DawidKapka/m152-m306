@@ -80,7 +80,6 @@ export class OrderStep2Component implements OnInit {
   }
 
   private showErorrs() {
-    console.log(this.errors);
     this.errors.forEach(error => {
       const element: HTMLInputElement = error.el.nativeElement!;
       element.classList.add('error')

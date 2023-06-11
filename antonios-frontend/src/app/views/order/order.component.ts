@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {OrderService} from "../../services/order.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-order',
@@ -10,7 +11,7 @@ export class OrderComponent implements OnInit {
 
   public step: number = 1;
 
-  constructor(private orderService: OrderService) {
+  constructor(private orderService: OrderService, private router: Router) {
   }
 
   ngOnInit() {
@@ -25,6 +26,8 @@ export class OrderComponent implements OnInit {
   }
 
   public order() {
-    this.orderService.placeOrder();
+    this.orderService.placeOrder().then(orderId => {
+      this.router.navigate(['overview', orderId])
+    });
   }
 }
