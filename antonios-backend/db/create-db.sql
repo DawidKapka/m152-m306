@@ -10,7 +10,7 @@ create table orders(
     city varchar(255) not null,
     zip int not null,
     phone varchar(255) not null,
-    status varchar(255) not null,
+    orderState varchar(255) not null,
     primary key (orderId)
 );
 

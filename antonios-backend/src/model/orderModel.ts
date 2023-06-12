@@ -2,13 +2,14 @@ import {Order, OrderInfos, OrderItem} from "../types/Order";
 import connection from "./connection";
 import {getAllItems} from "./menuModel";
 import {MenuItem} from "../types/Menu";
+import {OrderState} from "../types/OrderState";
 
 
 export const saveOrder = async (order: Order) => {
     return new Promise<number>(async (resolve, reject) => {
         connection.then(async (conn: any) => {
-            const query = 'INSERT INTO orders (firstname, lastname, streetNumber, city, zip, phone) VALUES (?, ?, ?, ?, ?, ?)';
-            const [data] = await conn.query(query, [order.orderInfos.firstname, order.orderInfos.lastname, order.orderInfos.streetNumber, order.orderInfos.city, order.orderInfos.zip, order.orderInfos.phone]);
+            const query = 'INSERT INTO orders (firstname, lastname, streetNumber, city, zip, phone, orderState) VALUES (?, ?, ?, ?, ?, ?, ?)';
+            const [data] = await conn.query(query, [order.orderInfos.firstname, order.orderInfos.lastname, order.orderInfos.streetNumber, order.orderInfos.city, order.orderInfos.zip, order.orderInfos.phone, OrderState.PENDING.toString()]);
             resolve(data.insertId);
         }).catch((err: any) => reject(err));
     });
@@ -47,6 +48,16 @@ export const findOrder = async (orderId: number): Promise<OrderInfos> => {
     });
 }
 
+export const getAllOrderStates = async (): Promise<{orderId: number, orderState: string}[]> => {
+    return new Promise<{orderId: number, orderState: string}[]>((resolve, reject) => {
+        connection.then(async (conn: any) => {
+           const query = 'SELECT orderId, orderState FROM orders WHERE orderState != ?';
+           const [data] = await conn.query(query, [OrderState.DELIVERED.toString()]);
+           resolve(data);
+        });
+    })
+}
+
 export const findOrderItems = async (orderId: number): Promise<OrderItem[]> => {
     return new Promise<OrderItem[]>(async (resolve, reject) => {
         connection.then(async (conn: any) => {
@@ -77,4 +88,14 @@ const mapToOrderItems = (orderItems: any[], menuItems: MenuItem[]): OrderItem[] 
         orderItemsMapped.push(item)
     })
     return orderItemsMapped
+}
+
+export const saveOrderState = async (orderId: number, orderState: OrderState) => {
+    return new Promise<void>((resolve, reject) => {
+        connection.then(async (conn: any) => {
+           const query = 'UPDATE orders SET orderState = ? WHERE orderId = ?';
+              await conn.query(query, [orderState.toString(), orderId]);
+              resolve();
+        });
+    });
 }
