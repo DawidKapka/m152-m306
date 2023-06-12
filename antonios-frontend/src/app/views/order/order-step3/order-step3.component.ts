@@ -9,6 +9,7 @@ import {OrderService} from "../../../services/order.service";
 export class OrderStep3Component implements OnInit {
 
   @Output('order') orderEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output('back') back = new EventEmitter<void>();
 
   constructor(private orderService: OrderService) { }
 
@@ -21,5 +22,9 @@ export class OrderStep3Component implements OnInit {
 
   public order() {
     this.orderEvent.emit();
+  }
+
+  public goBack() {
+    this.back.emit();
   }
 }

@@ -1,0 +1,48 @@
+@import "src/styles/colors.scss";
+
+
+.impressum {
+  min-height: 512px;
+  width: 100%;
+  background: $color-black-dark;
+
+  .title {
+    width: 100%;
+    text-align: center;
+    padding: 32px 0;
+
+    h2 {
+      color: $color-blue;
+      margin-top: 32px;
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 32px 0;
+
+    .content {
+      width: 60%;
+      height: 100%;
+      margin: 16px 0;
+      background-color: $color-black;
+      padding-bottom: 32px;
+
+      h3 {
+        margin: 32px 0 16px 0;
+      }
+
+      h3, h5, p {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .copyright {
+      padding-top: 32px;
+      margin-bottom: 32px;
+    }
+  }
+}

@@ -7,7 +7,7 @@
   </div>
   <div class="order-content" *ngIf="!isOrderEmpty()">
     <app-order-step1 class="order-step" *ngIf="step === 1" (next)="nextStep()"></app-order-step1>
-    <app-order-step2 class="order-step" *ngIf="step === 2" (next)="nextStep()"></app-order-step2>
-    <app-order-step3 class="order-step" *ngIf="step === 3" (order)="order()"></app-order-step3>
+    <app-order-step2 class="order-step" *ngIf="step === 2" (next)="nextStep()" (back)="goBack()"></app-order-step2>
+    <app-order-step3 class="order-step" *ngIf="step === 3" (order)="order()" (back)="goBack()"></app-order-step3>
   </div>
 </div>

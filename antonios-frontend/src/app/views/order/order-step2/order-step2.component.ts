@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {OrderService} from "../../../services/order.service";
 import {OrderInfos, OrderState} from "../../../types/order.types";
 
@@ -7,7 +7,7 @@ import {OrderInfos, OrderState} from "../../../types/order.types";
   templateUrl: './order-step2.component.html',
   styleUrls: ['./order-step2.component.scss']
 })
-export class OrderStep2Component implements OnInit {
+export class OrderStep2Component implements AfterViewInit {
 
   @ViewChild('firstname') firstname: ElementRef | undefined
   @ViewChild('lastname') lastname: ElementRef | undefined
@@ -17,12 +17,26 @@ export class OrderStep2Component implements OnInit {
   @ViewChild('number') number: ElementRef | undefined
 
   @Output('next') next = new EventEmitter<void>();
+  @Output('back') back = new EventEmitter<void>();
 
   public errors: { el: ElementRef, error: string}[] = [];
 
   constructor(private orderService: OrderService) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    if (this.orderService.getOrderInfos()) {
+      this.prefillInfos()
+    }
+  }
+
+  private prefillInfos() {
+    const infos = this.orderService.getOrderInfos()!;
+    this.firstname!.nativeElement.value = infos.firstname;
+    this.lastname!.nativeElement.value = infos.lastname;
+    this.street!.nativeElement.value = infos.streetNumber;
+    this.zip!.nativeElement.value = infos.zip;
+    this.city!.nativeElement.value = infos.city;
+    this.number!.nativeElement.value = infos.phone;
   }
 
   placeOrder() {
@@ -135,5 +149,9 @@ export class OrderStep2Component implements OnInit {
   private isValidZip(element: ElementRef): boolean {
     const el: HTMLInputElement = element.nativeElement;
     return /^\d{4}$/.test(el.value)
+  }
+
+  public goBack() {
+    this.back.emit();
   }
 }

@@ -44,7 +44,7 @@
 }
 
 
-.continue {
+.continue, .back {
   width: 128px;
   height: 48px;
   background-color: $color-pink;
@@ -54,10 +54,17 @@
   box-shadow: 2px 2px 2px $color-black;
   font-size: 16px;
   cursor: pointer;
-  margin-bottom: 32px;
+  margin: 16px 16px 32px 16px;
 
   :hover {
     background-color: $color-pink-active;
+  }
+}
+
+.back {
+  background-color: $color-blue;
+  :hover {
+    background-color: $color-blue-active;
   }
 }
 
@@ -69,6 +76,6 @@
   margin: 4px;
 
   p {
-    color: $color-red;
+    color: $color-pink-active;
   }
 }

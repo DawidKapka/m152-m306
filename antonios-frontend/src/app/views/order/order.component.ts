@@ -31,4 +31,8 @@ export class OrderComponent implements OnInit {
       this.router.navigate(['overview', orderId])
     });
   }
+
+  public goBack() {
+    this.step--;
+  }
 }
