@@ -16,8 +16,10 @@ Als Architektur wurde das MVC-Modell verwendet, wobei die Express.js App die Mod
   - Schritt 2: Lieferinfos wie Adresse, Name & Telefonnummer erfassen
   - Schritt 3: Bestellung überprüfen und abschliessen
 - Bestellstatus-Page erstellen
+- Bestellstatus abspeichern
 - Bestellung mit ID vom Backend holen
 - Bestellstatus mithilfe von Websockets einbinden
+- Bestellstatus im Backend automatisch aktualisieren
 - Kontakt-Page erstellen
 - Impressum-Page erstellen
 

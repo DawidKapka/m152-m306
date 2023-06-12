@@ -71,4 +71,10 @@ export class OrderService {
         })
     })
   }
+
+  resetOrder() {
+    this.orderItems = [];
+    this.orderInfos = undefined;
+    this.orderItemsChange.next(this.orderItems)
+  }
 }

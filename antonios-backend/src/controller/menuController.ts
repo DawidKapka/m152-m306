@@ -1,6 +1,7 @@
 import {MenuItem} from "../types/Menu";
 import {getAllItems} from "../model/menuModel";
 import {Request, Response} from "express";
+import * as path from "path";
 
 export const getMenu = (req: Request, res: Response): void => {
         getAllItems().then((menuItems: MenuItem[]) => {
@@ -21,4 +22,10 @@ export const getBestsellers = (req: Request, res: Response): void => {
        res.status(500);
        res.send(err);
     });
+}
+
+export const getImage = (req: Request, res: Response): void => {
+    const imageName = req.params.imageName;
+    const imagePath = path.join(__dirname, '..', 'assets', 'images', imageName);
+    res.sendFile(imagePath)
 }

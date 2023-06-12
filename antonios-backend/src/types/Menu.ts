@@ -8,6 +8,7 @@ export interface Item {
     itemName: string,
     smallPrice: number,
     largePrice: number,
+    imageUrl: string
 }
 
 export interface MenuItem {
@@ -15,5 +16,6 @@ export interface MenuItem {
     itemName: string,
     smallPrice: number,
     largePrice: number
-    ingredients: Ingredient[]
+    ingredients: Ingredient[],
+    imageUrl: string,
 }

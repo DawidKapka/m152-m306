@@ -10,6 +10,7 @@ create table orders(
     city varchar(255) not null,
     zip int not null,
     phone varchar(255) not null,
+    status varchar(255) not null,
     primary key (orderId)
 );
 
@@ -18,6 +19,7 @@ create table items(
     itemName varchar(255) not null,
     smallPrice float not null,
     largePrice float not null,
+    imageUrl varchar(255) not null,
     primary key (itemId)
 );
 
@@ -46,17 +48,17 @@ create table orderItems(
     foreign key (itemId) references items(itemId)
 );
 
-insert into items (itemName, smallPrice, largePrice)
+insert into items (itemName, smallPrice, largePrice, imageUrl)
 values
-  ('Pizza Margherita', 20.0, 24.0),
-  ('Pizza Salami', 22.0, 26.0),
-  ('Pizza Tonno', 22.0, 26.0),
-  ('Pizza Vegetaria', 22.0, 26.0),
-  ('Pizza Quattro Formaggi', 22.0, 26.0),
-  ('Pizza Quattro Stagioni', 22.0, 26.0),
-  ('Pizza Calzone', 22.0, 26.0),
-  ('Pizza Diavolo', 22.0, 26.0),
-  ('Pizza Prosciutto', 22.0, 26.0);
+  ('Pizza Margherita', 20.0, 24.0, 'margherita'),
+  ('Pizza Salami', 22.0, 26.0, 'salami'),
+  ('Pizza Tonno', 22.0, 26.0, 'tonno'),
+  ('Pizza Vegetaria', 22.0, 26.0, 'vegetaria'),
+  ('Pizza Quattro Formaggi', 22.0, 26.0, 'quattroformaggi'),
+  ('Pizza Quattro Stagioni', 22.0, 26.0, 'quattrostagioni'),
+  ('Pizza Calzone', 22.0, 26.0, 'calzone'),
+  ('Pizza Diavolo', 22.0, 26.0, 'diavolo'),
+  ('Pizza Prosciutto', 22.0, 26.0, 'prisciutto');
 
 
 insert into ingredients (ingredientName)

@@ -26,6 +26,7 @@ export class MenuItemComponent implements OnInit {
     return price.toFixed(2);
   }
 
+
   public addToOrder() {
     this.orderService.addToOrder(
       { name: this.createName(), price: this.getItemPrice()}

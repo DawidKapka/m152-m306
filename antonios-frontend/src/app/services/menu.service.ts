@@ -26,6 +26,7 @@ export class MenuService {
           large: item.largePrice
         },
         ingredients: item.ingredients.map((ingredient: any) => ingredient.ingredientName).join(', '),
+        image: `http://localhost:3000/menu/image/${item.imageUrl}.jpg`
       }))
     return menuItems;
   }

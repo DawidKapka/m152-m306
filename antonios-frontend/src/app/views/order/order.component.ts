@@ -27,6 +27,7 @@ export class OrderComponent implements OnInit {
 
   public order() {
     this.orderService.placeOrder().then(orderId => {
+      this.orderService.resetOrder()
       this.router.navigate(['overview', orderId])
     });
   }

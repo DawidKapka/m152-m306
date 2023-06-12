@@ -1,6 +1,6 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {OrderService} from "../../../services/order.service";
-import {OrderInfos} from "../../../types/order.types";
+import {OrderInfos, OrderState} from "../../../types/order.types";
 
 @Component({
   selector: 'app-order-step2',
@@ -45,7 +45,8 @@ export class OrderStep2Component implements OnInit {
       streetNumber: street.value,
       zip: +zip.value,
       city: city.value,
-      phone: number.value
+      phone: number.value,
+      orderState: OrderState.PENDING
     }
   }
 

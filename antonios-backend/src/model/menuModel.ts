@@ -4,13 +4,13 @@ import connection from "./connection";
 export const getAllItems = async () => {
     return new Promise<MenuItem[]>(async (resolve, reject) => {
        connection.then(async (conn: any) => {
-          const query = 'SELECT * FROM items';
-          const [data] = await conn.query(query);
-          const items: Item[] = data;
-          const ingredients: Ingredient[] = await getIngredients();
-          const itemIngredients: {itemId: number, ingredientId: number}[] = await getItemIngredients()
-          const menuItems: MenuItem[] = combineItemsAndIngredients(items, ingredients, itemIngredients);
-          resolve(menuItems);
+           const query = 'SELECT * FROM items';
+           const [data] = await conn.query(query);
+           const items: Item[] = data;
+           const ingredients: Ingredient[] = await getIngredients();
+           const itemIngredients: {itemId: number, ingredientId: number}[] = await getItemIngredients()
+           const menuItems: MenuItem[] = combineItemsAndIngredients(items, ingredients, itemIngredients);
+           resolve(menuItems);
        }).catch((err: any) => reject(err));
     });
 }
@@ -46,7 +46,8 @@ const createMenuItem = (item: Item, ingredients: Ingredient[], itemIngredients: 
         itemName: item.itemName,
         smallPrice: item.smallPrice,
         largePrice: item.largePrice,
-        ingredients: []
+        ingredients: [],
+        imageUrl: item.imageUrl,
     }
     const menuItemIngredients: any = itemIngredients
         .filter(itemIngredient => itemIngredient.itemId === menuItem.itemId)
