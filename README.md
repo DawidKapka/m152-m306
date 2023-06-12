@@ -1,4 +1,5 @@
 # Antonio's Pizza
+> Noah Buchs, Leonie Roth, Julia Stadler, Dawid Kapka
 
 Antonio's Pizza ist eine mit Angular und Express.js erstellte Pizzeria-Webseite. Sie bietet die Möglichkeit, Pizzen zu bestellen und den Bestellstatus zu verfolgen.
 Das Menu kann direkt durch die Datenbank verwaltet werden und die Bestellungen werden in einer Datenbank gespeichert.
