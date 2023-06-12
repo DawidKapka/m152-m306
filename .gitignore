@@ -1,0 +1,10 @@
+antonios-backend/.idea/
+antonios-frontend/.idea/
+.idea/
+
+antonios-frontend/.angular/
+antonios-frontend/.vscode
+
+node_modules/
+antonios-backend/node_modules/
+antonios-frontend/node_modules/
