@@ -16,8 +16,8 @@ export const createOrder = (req: Request, res: Response): void => {
 }
 
 export const getOrder = (req: Request, res: Response): void => {
-    findOrder(req.params.id).then(orderInfos => {
-        findOrderItems(req.params.id).then(orderItems => {
+    findOrder(+req.params.id).then(orderInfos => {
+        findOrderItems(+req.params.id).then(orderItems => {
             res.status(200);
             res.send({orderInfos, orderItems});
         }).catch(err => {
