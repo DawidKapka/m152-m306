@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './views/menu/menu.component';
-import { PersonalizationComponent } from './views/personalization/personalization.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
@@ -18,13 +17,13 @@ import { OrderStep3Component } from './views/order/order-step3/order-step3.compo
 import {HttpService} from "./services/http.service";
 import {PersonalizationService} from "./services/personalization.service";
 import { OverviewComponent } from './views/overview/overview.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MenuComponent,
-    PersonalizationComponent,
     ContactComponent,
     FooterComponent,
     MenuItemComponent,
@@ -32,7 +31,8 @@ import { OverviewComponent } from './views/overview/overview.component';
     OrderStep1Component,
     OrderStep2Component,
     OrderStep3Component,
-    OverviewComponent
+    OverviewComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

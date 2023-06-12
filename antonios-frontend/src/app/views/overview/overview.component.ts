@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Order, OrderItem, OrderState} from "../../types/order.types";
 import {OrderService} from "../../services/order.service";
 
@@ -13,14 +13,17 @@ export class OverviewComponent implements OnInit, OnDestroy {
   public order: Order | undefined = undefined;
   public state: string = OrderState.UNKNOWN;
   private socket: WebSocket | undefined = undefined;
+  public copyLinkText: string = 'Copy Link';
 
-  constructor(private route: ActivatedRoute, private orderService: OrderService) { }
+  constructor(private route: ActivatedRoute, private orderService: OrderService, private router: Router) { }
 
   ngOnInit(): void {
     this.orderId = +(this.route.snapshot.paramMap.get('id') ?? 0);
     this.orderService.fetchOrder(this.orderId).then(order => {
       this.order = order;
       this.state = order.orderInfos.orderState;
+    }).catch(() => {
+      this.router.navigate(['404'])
     })
     this.initializeWebSocketConnection();
   }
@@ -36,10 +39,10 @@ export class OverviewComponent implements OnInit, OnDestroy {
   public summarizeItems() {
     let orderItemsSummarized: (OrderItem & {amount: number})[] = []
     this.order?.orderItems.forEach(item => {
-      let existingItem = orderItemsSummarized.find(i => i.price === item.price && i.name === item.name);
+      let existingItem = orderItemsSummarized.find(i => i.name === item.name);
       if (existingItem) {
+        existingItem.price += item.price;
         existingItem.amount++;
-        existingItem.price = existingItem.price * existingItem.amount
       } else {
         orderItemsSummarized.push({
           name: item.name,
@@ -79,5 +82,13 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.socket?.close();
+  }
+
+  copyLink() {
+    this.copyLinkText = 'Copied!';
+    navigator.clipboard.writeText(window.location.href)
+    setTimeout(() => {
+      this.copyLinkText = 'Copy Link';
+    }, 1200)
   }
 }

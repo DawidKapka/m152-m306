@@ -13,6 +13,7 @@
         <h5>
           {{item.price.toFixed(2)}} CHF
         </h5>
+        <button class="remove-button" (click)="remove(item)">X</button>
       </div>
     </div>
     <div class="divider-small" *ngIf="i !== summarize(orderService.getOrderItems()).length -1"></div>

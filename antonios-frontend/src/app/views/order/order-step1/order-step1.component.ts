@@ -30,10 +30,10 @@ export class OrderStep1Component implements OnInit {
   summarize(orderItems: OrderItem[]) {
     let orderItemsSummarized: (OrderItem & {amount: number})[] = []
     orderItems.forEach(item => {
-      let existingItem = orderItemsSummarized.find(i => i.price === item.price && i.name === item.name);
+      let existingItem = orderItemsSummarized.find(i => i.name === item.name);
       if (existingItem) {
+        existingItem.price += item.price;
         existingItem.amount++;
-        existingItem.price = existingItem.price * existingItem.amount
       } else {
         orderItemsSummarized.push({
           name: item.name,
@@ -47,5 +47,9 @@ export class OrderStep1Component implements OnInit {
 
   nextStep() {
     this.next.emit();
+  }
+
+  remove(item: OrderItem & { amount: number }) {
+    this.orderService.removeOrderItem(item)
   }
 }

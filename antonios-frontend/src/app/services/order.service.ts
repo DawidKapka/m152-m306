@@ -22,10 +22,31 @@ export class OrderService {
   public addToOrder(orderItem: OrderItem): void {
     this.orderItems.push(orderItem)
     this.orderItemsChange.next(this.orderItems)
+    this.saveOrderItems()
+  }
+
+  private saveOrderItems() {
+    const items = localStorage.getItem('orderItems');
+    if (items) {
+      localStorage.removeItem('orderItems');
+    }
+    localStorage.setItem('orderItems', JSON.stringify(this.orderItems));
   }
 
   public getOrderItems(): OrderItem[] {
+    if (!this.orderItems) {
+      this.readItemsFromLocalStorage();
+    }
     return this.orderItems;
+  }
+
+  public readItemsFromLocalStorage() {
+    const items = localStorage.getItem('orderItems');
+    console.log(items);
+    if (items) {
+      this.orderItems = JSON.parse(items);
+      this.orderItemsChange.next(this.orderItems)
+    }
   }
 
   public getOrderItemsAmount(): number {
@@ -75,6 +96,14 @@ export class OrderService {
   resetOrder() {
     this.orderItems = [];
     this.orderInfos = undefined;
+    this.saveOrderItems();
     this.orderItemsChange.next(this.orderItems)
+  }
+
+  removeOrderItem(item: OrderItem & { amount: number }) {
+    const itemToDelete = this.orderItems.find(i => i.name === item.name);
+    this.orderItems = this.orderItems.filter(i => i !== itemToDelete);
+    this.orderItemsChange.next(this.orderItems)
+    this.saveOrderItems()
   }
 }

@@ -1,6 +1,7 @@
 <div class="overview">
   <h4 class="title">Your order</h4>
   <h5 class="order-id">Order Nr. {{orderId}}</h5>
+  <h5 class="order-copy" (click)="copyLink()">{{copyLinkText}}</h5>
   <div class="order-overview">
     <div class="order-item" *ngFor="let item of summarizeItems(); let i = index">
       <div class="info-wrapper">

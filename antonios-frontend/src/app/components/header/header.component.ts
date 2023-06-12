@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.orderService.readItemsFromLocalStorage()
   }
 
   hasItemsInOrder() {
