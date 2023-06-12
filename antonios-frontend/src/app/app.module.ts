@@ -18,6 +18,7 @@ import {HttpService} from "./services/http.service";
 import {PersonalizationService} from "./services/personalization.service";
 import { OverviewComponent } from './views/overview/overview.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
+import { ImpressumComponent } from './views/impressum/impressum.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
     OrderStep2Component,
     OrderStep3Component,
     OverviewComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ImpressumComponent
   ],
   imports: [
     BrowserModule,

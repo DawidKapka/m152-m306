@@ -58,13 +58,13 @@ values
   ('Pizza Quattro Stagioni', 22.0, 26.0, 'quattrostagioni'),
   ('Pizza Calzone', 22.0, 26.0, 'calzone'),
   ('Pizza Diavolo', 22.0, 26.0, 'diavolo'),
-  ('Pizza Prosciutto', 22.0, 26.0, 'prisciutto');
+  ('Pizza Prosciutto', 22.0, 26.0, 'prosciutto');
 
 
 insert into ingredients (ingredientName)
 values
-  ('Cheese'),
   ('Tomato Sauce'),
+  ('Mozarella'),
   ('Salami'),
   ('Ham'),
   ('Tuna'),
@@ -78,7 +78,12 @@ values
   ('Bacon'),
   ('Spinach'),
   ('Garlic'),
-  ('Chili');
+  ('Chili'),
+  ('Onions'),
+  ('Jalapenos'),
+  ('Gorgonzola'),
+  ('Parmigiano'),
+  ('Stracchino');
 
 insert into itemIngredients (itemId, ingredientId)
 values
@@ -89,35 +94,35 @@ values
   (2, 3),
   (3, 1),
   (3, 2),
-  (3, 4),
+  (3, 5),
+  (3, 17),
   (4, 1),
   (4, 2),
-  (4, 5),
   (4, 6),
   (4, 7),
-  (4, 8),
+  (4, 9),
+  (4, 14),
   (5, 1),
   (5, 2),
-  (5, 9),
-  (5, 10),
-  (5, 11),
+  (5, 19),
+  (5, 20),
+  (5, 21),
   (6, 1),
   (6, 2),
+  (6, 3),
   (6, 4),
-  (6, 6),
-  (6, 7),
-  (6, 8),
+  (6, 5),
+  (6, 12),
   (7, 1),
   (7, 2),
   (7, 4),
-  (7, 6),
-  (7, 7),
-  (7, 8),
   (8, 1),
   (8, 2),
   (8, 3),
+  (8, 15),
   (8, 16),
+  (8, 17),
   (9, 1),
   (9, 2),
-  (9, 4);
+  (9, 4),
 

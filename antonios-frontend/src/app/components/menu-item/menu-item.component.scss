@@ -2,7 +2,7 @@
 
 .menu-item {
   width: 360px;
-  height: 256px;
+  height: 320px;
   background: $color-black;
   margin: 16px;
   border-radius: 4px;
@@ -15,9 +15,20 @@
     padding: 16px 0;
   }
 
+  .ingredients {
+    height: 32px;
+    padding: 16px;
+
+    p {
+      font-size: 16px;
+      font-style: italic;
+      opacity: .6;
+    }
+  }
+
   .image {
     width: 100%;
-    height: calc(100% - 96px);
+    height: 160px;
     background: black;
 
     img {
