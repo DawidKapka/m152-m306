@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent},
   { path: 'overview/:id', component: OverviewComponent},
   { path: '**', redirectTo: 'menu'}
+
 ];
 
 @NgModule({
