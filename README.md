@@ -9,7 +9,7 @@ Als Architektur wurde das MVC-Modell verwendet, wobei die Express.js App die Mod
 <br>
 - Angular Projekt aufsetzen
 - Menu-Page erstellen
-- Einkaufskorb-Funktionalität erstellen
+- Warenkorb-Funktionalität erstellen
 - Bestellungs-Page erstellen
 - Bestellprozess definieren und in Bestellungs-Page implementieren
   - Schritt 1: Artikel erfassen und zusammengefasst mit Total-Preis anzeigen
