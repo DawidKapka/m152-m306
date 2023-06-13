@@ -9,7 +9,14 @@ export const saveOrder = async (order: Order) => {
     return new Promise<number>(async (resolve, reject) => {
         connection.then(async (conn: any) => {
             const query = 'INSERT INTO orders (firstname, lastname, streetNumber, city, zip, phone, orderState) VALUES (?, ?, ?, ?, ?, ?, ?)';
-            const [data] = await conn.query(query, [order.orderInfos.firstname, order.orderInfos.lastname, order.orderInfos.streetNumber, order.orderInfos.city, order.orderInfos.zip, order.orderInfos.phone, OrderState.PENDING.toString()]);
+            const [data] = await conn.query(query, [
+                order.orderInfos.firstname,
+                order.orderInfos.lastname,
+                order.orderInfos.streetNumber,
+                order.orderInfos.city,
+                order.orderInfos.zip,
+                order.orderInfos.phone,
+                OrderState.PENDING.toString()]);
             resolve(data.insertId);
         }).catch((err: any) => reject(err));
     });
