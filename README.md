@@ -23,9 +23,11 @@ Als Architektur wurde das MVC-Modell verwendet, wobei die Express.js App die Mod
 - Kontakt-Page erstellen
 - Impressum-Page erstellen
 
-**sinnvolle, korrekte und qualitative grafische Darstellungen (3)**
+**sinnvolle, korrekte und qualitative grafische Darstellungen**
 
-![Main Page](img/ss_01.png, 'Main Page')
+![Main Page](./img/ss_01.png "'Main Page'")
+![Main Page](./img/ss_02.png "'Main Page'")
+![Main Page](./img/ss_03.png "'Main Page'")
 
 
 
