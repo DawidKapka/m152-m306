@@ -5,7 +5,7 @@ import {connections} from "../wbesocket/websocket";
 export const startStateWorker = () => {
     setInterval(() => {
         updateOrderState();
-    }, 60000);
+    }, 5000);
 }
 
 export const updateOrderState = () => {
