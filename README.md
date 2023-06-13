@@ -40,3 +40,15 @@ Als Architektur wurde das MVC-Modell verwendet, wobei die Express.js App die Mod
 - Einbindung von Datenbanken in einer Web-Applikation
 - Erstellen von RESTful APIs
 - Verwendung von Websockets
+
+**Starten der Applikation**
+
+Um die Applikation zu starten wird ein Docker-Container mit einem MySQL-Server benötigt.
+Wenn dieser erstellt ist, kann die Datenbank mithilfe des Skripts unter ```antonios-backend/db/create-db.sql``` erstellt werden.
+<br>
+Danach muss das Backend und das Frontend gestartet werden.
+
+- Frontend starten: 
+  ```cd antonios-frontend``` -> ```npm install``` -> ```npm run start```
+- Backend starten:
+  ```cd antonios-backend``` -> ```npm install``` -> ```npm run start```
