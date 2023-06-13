@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import { PopupService } from 'src/app/services/popup.service';
 import {OrderService} from "../../../services/order.service";
 import {OrderInfos, OrderState} from "../../../types/order.types";
 
@@ -21,7 +22,7 @@ export class OrderStep2Component implements AfterViewInit {
 
   public errors: { el: ElementRef, error: string}[] = [];
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private popupService: PopupService) { }
 
   ngAfterViewInit(): void {
     if (this.orderService.getOrderInfos()) {
@@ -43,6 +44,8 @@ export class OrderStep2Component implements AfterViewInit {
     if (this.validateFields()) {
       this.orderService.setOrderInfos(this.createOrderInfos())
       this.next.emit();
+    } else {
+      this.popupService.showPopup('Cannot continue: There are errors in the delivery infos!', 'error')
     }
   }
 

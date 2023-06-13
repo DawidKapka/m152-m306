@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MenuItem} from "../../types/menu.types";
 import {OrderService} from "../../services/order.service";
+import { PopupService } from 'src/app/services/popup.service';
 
 @Component({
   selector: 'app-menu-item',
@@ -13,7 +14,7 @@ export class MenuItemComponent implements OnInit {
 
   public selectedSize: 'large' | 'small' = 'small';
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private popupService: PopupService) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +32,7 @@ export class MenuItemComponent implements OnInit {
     this.orderService.addToOrder(
       { name: this.createName(), price: this.getItemPrice()}
     )
+    this.popupService.showPopup(`Added to order: ${this.createName()}`, 'info');
   }
 
   private createName() {

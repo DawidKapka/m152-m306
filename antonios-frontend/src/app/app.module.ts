@@ -19,6 +19,7 @@ import {PersonalizationService} from "./services/personalization.service";
 import { OverviewComponent } from './views/overview/overview.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
 import { ImpressumComponent } from './views/impressum/impressum.component';
+import { PopupService } from './services/popup.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ImpressumComponent } from './views/impressum/impressum.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [MenuService, OrderService, HttpService, PersonalizationService],
+  providers: [MenuService, OrderService, HttpService, PersonalizationService, PopupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OrderService} from "../../services/order.service";
 import {Router} from "@angular/router";
+import { PopupService } from 'src/app/services/popup.service';
 
 @Component({
   selector: 'app-order',
@@ -11,7 +12,7 @@ export class OrderComponent implements OnInit {
 
   public step: number = 1;
 
-  constructor(private orderService: OrderService, private router: Router) {
+  constructor(private orderService: OrderService, private router: Router, private popupService: PopupService) {
   }
 
   ngOnInit() {
@@ -28,7 +29,9 @@ export class OrderComponent implements OnInit {
   public order() {
     this.orderService.placeOrder().then(orderId => {
       this.orderService.resetOrder()
-      this.router.navigate(['overview', orderId])
+      this.router.navigate(['overview', orderId]).then(() => {
+        this.popupService.showPopup('Your order has been placed!', 'success');
+      })
     });
   }
 
